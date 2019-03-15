@@ -1,0 +1,29 @@
+{
+  "name": "cca-bs-react-native",
+  "version": "0.0.1",
+  "description": "BuckleScript/Reason bindings for React Native",
+  "main": "index.js",
+  "author": "Christoph Knittel <ck@cca.io>",
+  "license": "MIT",
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "react-native"
+  ],
+  "devDependencies": {
+    "bs-platform": "^4.0.18",
+    "reason-react": "https://github.com/reasonml/reason-react.git#hooks"
+  },
+  "peerDependencies": {
+    "react-native": "^0.59.0",
+    "reason-react": "https://github.com/reasonml/reason-react.git#hooks"
+  },
+  "scripts": {
+    "format": "bsrefmt --in-place `find src -name \"*.re\"`",
+    "bsb:clean": "bsb -clean-world",
+    "bsb:start": "bsb -make-world -w",
+    "bsb:build": "bsb -make-world",
+    "start": "yarn bsb:start"
+  }
+}
