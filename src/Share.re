@@ -18,5 +18,22 @@ external options:
   options =
   "";
 
+type action;
+
 [@bs.module "react-native"] [@bs.scope "Share"]
-external share: (content, options) => Js.Promise.t(bool) = "share";
+external sharedAction: action = "";
+
+[@bs.module "react-native"] [@bs.scope "Share"]
+external dismissedAction: action = "";
+
+type shareResult = {
+  .
+  "action": action,
+  "activityType": option(string),
+};
+
+[@bs.module "react-native"] [@bs.scope "Share"]
+external share: content => Js.Promise.t(shareResult) = "";
+
+[@bs.module "react-native"] [@bs.scope "Share"]
+external shareWithOptions: (content, options) => Js.Promise.t(bool) = "share";
