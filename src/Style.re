@@ -19,7 +19,8 @@ module Size = {
   let pct: float => t = pct->Obj.magic;
 };
 
-type color = string;
+type color;
+external color: string => color = "%identity";
 
 module Transform = {
   type angle;
