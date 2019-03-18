@@ -239,3 +239,7 @@ external style:
   ) =>
   t =
   "";
+
+// Duplicated from StyleSheet.re for convenience.
+[@bs.module "react-native"] [@bs.scope "StyleSheet"]
+external flatten: array(t) => t = "";
