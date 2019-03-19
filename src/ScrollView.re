@@ -1,5 +1,3 @@
-// TODO scrollTo, scrollToEnd
-
 [@react.component] [@bs.module "react-native"]
 external make:
   (
@@ -104,3 +102,23 @@ external make:
   ) =>
   React.element =
   "ScrollView";
+
+type scrollToParams;
+[@bs.obj]
+external scrollToParams:
+  (~x: float, ~y: float, ~animated: bool=?, ~duration: float=?, unit) =>
+  scrollToParams =
+  "";
+[@bs.send] external scrollTo: scrollToParams => unit = "";
+
+type scrollToEndOptions;
+[@bs.obj]
+external scrollToEndOptions:
+  (~animated: bool=?, ~duration: float=?, unit) => scrollToEndOptions =
+  "";
+[@bs.send] external scrollToEnd: React.Ref.domRef => unit = "scrollToEnd";
+[@bs.send]
+external scrollToEndWithOptions: (React.Ref.domRef, scrollToEndOptions) => unit =
+  "scrollToEnd";
+
+[@bs.send] external flashScrollIndicators: React.Ref.domRef => unit = "";
