@@ -13,10 +13,49 @@ external make:
     ~color: Style.color=?,
     ~size: size=?,
     ~hidesWhenStopped: bool=?,
-    // Common View props
+    // View props
+    ~accessibilityComponentType: [@bs.string] [
+                                   | `none
+                                   | `button
+                                   | `radiobutton_checked
+                                   | `radiobutton_unchecked
+                                 ]
+                                   =?,
+    ~accessibilityElementsHidden: bool=?,
+    ~accessibilityHint: string=?,
+    ~accessibilityIgnoresInvertColors: bool=?,
     ~accessibilityLabel: string=?,
+    ~accessibilityLiveRegion: [@bs.string] [ | `none | `polite | `assertive]=?,
+    ~accessibilityRole: [@bs.string] [
+                          | `none
+                          | `button
+                          | `link
+                          | `search
+                          | `image
+                          | `keyboardkey
+                          | `text
+                          | `adjustable
+                          | `header
+                          | `summary
+                          | `imagebutton
+                        ]
+                          =?,
+    ~accessibilityStates: array(Types.AccessibilityState.t)=?,
+    ~accessibilityTraits: array(Types.AccessibilityTrait.t)=?,
+    ~accessibilityViewIsModal: bool=?,
     ~accessible: bool=?,
+    ~collapsable: bool=?,
     ~hitSlop: Types.insets=?,
+    ~importantForAccessibility: [@bs.string] [
+                                  | `auto
+                                  | `yes
+                                  | `no
+                                  | [@bs.as "no-hide-descendants"]
+                                    `noHideDescendants
+                                ]
+                                  =?,
+    ~nativeID: string=?,
+    ~needsOffscreenAlphaCompositing: bool=?,
     ~onAccessibilityTap: unit => unit=?,
     ~onLayout: RNEvent.NativeLayoutEvent.t => unit=?,
     ~onMagicTap: unit => unit=?,
@@ -38,45 +77,10 @@ external make:
                     ]
                       =?,
     ~removeClippedSubviews: bool=?,
-    ~style: Style.t=?,
-    ~testID: string=?,
-    ~accessibilityComponentType: [@bs.string] [
-                                   | `none
-                                   | `button
-                                   | `radiobutton_checked
-                                   | `radiobutton_unchecked
-                                 ]
-                                   =?,
-    ~accessibilityLiveRegion: [@bs.string] [ | `none | `polite | `assertive]=?,
-    ~collapsable: bool=?,
-    ~importantForAccessibility: [@bs.string] [
-                                  | `auto
-                                  | `yes
-                                  | `no
-                                  | [@bs.as "no-hide-descendants"]
-                                    `noHideDescendants
-                                ]
-                                  =?,
-    ~needsOffscreenAlphaCompositing: bool=?,
     ~renderToHardwareTextureAndroid: bool=?,
-    ~accessibilityRole: [@bs.string] [
-                          | `none
-                          | `button
-                          | `link
-                          | `search
-                          | `image
-                          | `keyboardkey
-                          | `text
-                          | `adjustable
-                          | `header
-                          | `summary
-                          | `imagebutton
-                        ]
-                          =?,
-    ~accessibilityStates: Types.accessibilityStates=?,
-    ~accessibilityViewIsModal: bool=?,
     ~shouldRasterizeIOS: bool=?,
-    ~children: React.element=?
+    ~style: Style.t=?,
+    ~testID: string=?
   ) =>
   React.element =
   "ActivityIndicator";
