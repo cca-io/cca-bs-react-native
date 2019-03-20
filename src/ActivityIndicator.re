@@ -1,5 +1,3 @@
-// TODO scrollTo, scrollToEnd
-
 type size;
 
 let small: size = "small"->Obj.magic;
