@@ -97,7 +97,7 @@ external make:
     ~progressViewOffset: float=?,
     ~refreshing: bool=?,
     ~renderItem: renderItemCallback('item),
-    ~renderScrollComponent: unit => React.element, // TODO: params?
+    ~renderScrollComponent: unit => React.element=?, // TODO: params?
     ~updateCellsBatchingPeriod: float=?,
     ~viewabilityConfig: viewabilityConfig=?,
     ~viewabilityConfigCallbackPairs: viewabilityConfigCallbackPairs('item)=?,

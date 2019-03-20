@@ -40,7 +40,7 @@ external make:
     ~progressViewOffset: float=?,
     ~refreshing: bool=?,
     ~renderItem: VirtualizedList.renderItemCallback('item),
-    ~renderScrollComponent: unit => React.element, // TODO: params?
+    ~renderScrollComponent: unit => React.element=?, // TODO: params?
     ~updateCellsBatchingPeriod: float=?,
     ~viewabilityConfig: VirtualizedList.viewabilityConfig=?,
     ~viewabilityConfigCallbackPairs: VirtualizedList.viewabilityConfigCallbackPairs(
