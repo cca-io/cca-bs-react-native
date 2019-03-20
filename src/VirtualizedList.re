@@ -1,52 +1,106 @@
-type separatorComponentProps('item) = {
+type renderItemProps('item) = {
   .
-  "highlighted": bool,
-  "leadingItem": option('item),
+  "item": 'item,
+  "index": int,
+  // "separators": TODO
 };
+
+type renderItemCallback('item) = renderItemProps('item) => React.element;
+
+// TODO
+type cellRendererComponentProps('item) = {.};
+type cellRendererComponent('item) =
+  React.component(cellRendererComponentProps('item));
+
+type viewableItem('item) = {
+  .
+  "item": 'item,
+  "key": string,
+  "index": Js.undefined(int),
+  "isViewable": bool,
+  "section": Js.t({.}),
+};
+
+type viewableItemsChanged('item) = {
+  .
+  "viewableItems": array(viewableItem('item)),
+  "changed": array(viewableItem('item)),
+};
+
+type itemLayout = {
+  .
+  "length": float,
+  "offset": float,
+  "index": int,
+};
+
+type onEndReachedParams = {. "distanceFromEnd": float};
+
+type onScrollToIndexFailedInfo = {
+  .
+  "index": int,
+  "highestMeasuredFrameIndex": int,
+  "averageItemLength": float,
+};
+
+type onScrollToIndexFailedParams = {. "info": onScrollToIndexFailedInfo};
+
+type viewabilityConfig;
+[@bs.obj]
+external viewabilityConfig:
+  (
+    ~minimumViewTime: float=?,
+    ~viewAreaCoveragePercentThreshold: float=?,
+    ~itemVisiblePercentThreshold: float=?,
+    ~waitForInteraction: bool=?,
+    unit
+  ) =>
+  viewabilityConfig =
+  "";
+
+type viewabilityConfigCallbackPair('item);
+[@bs.obj]
+external viewabilityConfigCallbackPair:
+  (
+    ~viewabilityConfig: viewabilityConfig,
+    ~onViewableItemsChanged: viewableItemsChanged('item) => unit
+  ) =>
+  viewabilityConfigCallbackPair('item) =
+  "";
+
+type viewabilityConfigCallbackPairs('item) =
+  array(viewabilityConfigCallbackPair('item));
 
 [@react.component] [@bs.module "react-native"]
 external make:
   (
-    ~_ItemSeparatorComponent: React.component(separatorComponentProps('item))
-                                =?,
-    ~columnWrapperStyle: Style.t=?,
-    ~data: array('item),
-    ~getItemLayout: (array('item), int) => VirtualizedList.itemLayout=?,
-    ~numColumns: 'int=?,
-    // VirtualizedList props
-    // ~_CellRendererComponent: VirtualizedList.cellRendererComponent('item)=?,
+    ~_CellRendererComponent: cellRendererComponent('item)=?,
     ~_ListEmptyComponent: React.element=?,
     ~_ListFooterComponent: React.element=?,
     ~_ListHeaderComponent: React.element=?,
-    // ~data: 'data, // any collection of 'item
+    ~data: 'data, // any collection of 'item
     ~disableVirtualization: bool=?, // deprecated
     ~extraData: 'extraData=?,
-    // ~getItem: ('data, int) => 'item=?,
-    // ~getItemCount: 'data => int=?,
-    // ~getItemLayout: ('data, int) => VirtualizedList.itemLayout=?,
+    ~getItem: ('data, int) => 'item=?,
+    ~getItemCount: 'data => int=?,
+    ~getItemLayout: ('data, int) => itemLayout=?,
     ~initialNumToRender: int=?,
     ~initialScrollIndex: int=?,
     ~inverted: bool=?,
     ~keyExtractor: ('item, int) => string,
     ~maxToRenderPerBatch: int=?,
-    ~onEndReached: VirtualizedList.onEndReachedParams => unit=?,
+    ~onEndReached: onEndReachedParams => unit=?,
     ~onEndReachedThreshold: float=?,
     ~onRefresh: unit => unit=?,
-    ~onScrollToIndexFailed: VirtualizedList.onScrollToIndexFailedParams => unit
-                              =?,
-    ~onViewableItemsChanged: VirtualizedList.viewableItemsChanged('item) =>
-                             unit
-                               =?,
+    ~onScrollToIndexFailed: onScrollToIndexFailedParams => unit=?,
+    ~onViewableItemsChanged: viewableItemsChanged('item) => unit=?,
     ~progressViewOffset: float=?,
     ~refreshing: bool=?,
-    ~renderItem: VirtualizedList.renderItemCallback('item),
+    ~renderItem: renderItemCallback('item),
     ~renderScrollComponent: unit => React.element, // TODO: params?
     ~updateCellsBatchingPeriod: float=?,
-    ~viewabilityConfig: VirtualizedList.viewabilityConfig=?,
-    ~viewabilityConfigCallbackPairs: VirtualizedList.viewabilityConfigCallbackPairs(
-                                       'item,
-                                     )
-                                       =?,
+    ~viewabilityConfig: viewabilityConfig=?,
+    ~viewabilityConfigCallbackPairs: viewabilityConfigCallbackPairs('item)=?,
     ~windowSize: int=?,
     // ScrollView props
     ~alwaysBounceHorizontal: bool=?,

@@ -24,7 +24,7 @@ external make:
                           | `imagebutton
                         ]
                           =?,
-    ~accessibilityStates: Types.accessibilityStates=?,
+    ~accessibilityStates: array(Types.AccessibilityState.t)=?,
     ~delayLongPress: int=?,
     ~delayPressIn: int=?,
     ~delayPressOut: int=?,

@@ -4,8 +4,6 @@ external make:
   (
     ~onValueChange: ('a, int) => unit=?,
     ~selectedValue: 'a=?,
-    ~style: Style.t=?,
-    ~testID: string=?,
     ~enabled: bool=?,
     // Android only
     ~mode: [@bs.string] [ | `dialog | `dropdown]=?,
@@ -13,9 +11,48 @@ external make:
     // iOS only
     ~itemStyle: Style.t=?,
     // View Props
+    ~accessibilityComponentType: [@bs.string] [
+                                   | `none
+                                   | `button
+                                   | `radiobutton_checked
+                                   | `radiobutton_unchecked
+                                 ]
+                                   =?,
+    ~accessibilityElementsHidden: bool=?,
+    ~accessibilityHint: string=?,
+    ~accessibilityIgnoresInvertColors: bool=?,
     ~accessibilityLabel: string=?,
+    ~accessibilityLiveRegion: [@bs.string] [ | `none | `polite | `assertive]=?,
+    ~accessibilityRole: [@bs.string] [
+                          | `none
+                          | `button
+                          | `link
+                          | `search
+                          | `image
+                          | `keyboardkey
+                          | `text
+                          | `adjustable
+                          | `header
+                          | `summary
+                          | `imagebutton
+                        ]
+                          =?,
+    ~accessibilityStates: array(Types.AccessibilityState.t)=?,
+    ~accessibilityTraits: array(Types.AccessibilityTrait.t)=?,
+    ~accessibilityViewIsModal: bool=?,
     ~accessible: bool=?,
+    ~collapsable: bool=?,
     ~hitSlop: Types.insets=?,
+    ~importantForAccessibility: [@bs.string] [
+                                  | `auto
+                                  | `yes
+                                  | `no
+                                  | [@bs.as "no-hide-descendants"]
+                                    `noHideDescendants
+                                ]
+                                  =?,
+    ~nativeID: string=?,
+    ~needsOffscreenAlphaCompositing: bool=?,
     ~onAccessibilityTap: unit => unit=?,
     ~onLayout: RNEvent.NativeLayoutEvent.t => unit=?,
     ~onMagicTap: unit => unit=?,
@@ -37,42 +74,10 @@ external make:
                     ]
                       =?,
     ~removeClippedSubviews: bool=?,
-    ~accessibilityComponentType: [@bs.string] [
-                                   | `none
-                                   | `button
-                                   | `radiobutton_checked
-                                   | `radiobutton_unchecked
-                                 ]
-                                   =?,
-    ~accessibilityLiveRegion: [@bs.string] [ | `none | `polite | `assertive]=?,
-    ~collapsable: bool=?,
-    ~importantForAccessibility: [@bs.string] [
-                                  | `auto
-                                  | `yes
-                                  | `no
-                                  | [@bs.as "no-hide-descendants"]
-                                    `noHideDescendants
-                                ]
-                                  =?,
-    ~needsOffscreenAlphaCompositing: bool=?,
     ~renderToHardwareTextureAndroid: bool=?,
-    ~accessibilityRole: [@bs.string] [
-                          | `none
-                          | `button
-                          | `link
-                          | `search
-                          | `image
-                          | `keyboardkey
-                          | `text
-                          | `adjustable
-                          | `header
-                          | `summary
-                          | `imagebutton
-                        ]
-                          =?,
-    ~accessibilityStates: Types.accessibilityStates=?,
-    ~accessibilityViewIsModal: bool=?,
     ~shouldRasterizeIOS: bool=?,
+    ~style: Style.t=?,
+    ~testID: string=?,
     ~children: React.element=?
   ) =>
   React.element =
