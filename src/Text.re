@@ -7,7 +7,7 @@ external make:
     ~allowFontScaling: bool=?,
     ~ellipsizeMode: [@bs.string] [ | `clip | `head | `middle | `tail]=?,
     ~numberOfLines: int=?,
-    ~onLayout: RNEvent.NativeLayoutEvent.t => unit=?,
+    ~onLayout: Event.NativeLayoutEvent.t => unit=?,
     ~onLongPress: unit => unit=?,
     ~onPress: unit => unit=?,
     ~pressRetentionOffset: Types.insets=?,
