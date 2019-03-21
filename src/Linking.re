@@ -2,20 +2,14 @@
 external openURL: string => Js.Promise.t(unit) = "openURL";
 
 [@bs.scope "Linking"] [@bs.module "react-native"]
-external _canOpenURL: string => Js.Promise.t(bool) = "canOpenURL";
-
-let canOpenURL = url =>
-  _canOpenURL(url) |> Js.Promise.then_(bool => Js.Promise.resolve(bool));
+external canOpenURL: string => Js.Promise.t(bool) = "canOpenURL";
 
 [@bs.scope "Linking"] [@bs.module "react-native"]
-external _getInitialURL: unit => Js.Promise.t(Js.Null.t(string)) =
+external getInitialURL: unit => Js.Promise.t(Js.Null.t(string)) =
   "getInitialURL";
 
 let getInitialURL = () =>
-  _getInitialURL()
-  |> Js.Promise.then_(stringOrNull =>
-       Js.Promise.resolve(Js.Null.toOption(stringOrNull))
-     );
+  Js.Promise.(getInitialURL() |> then_(PromiseUtils.nullableToOption));
 
 [@bs.scope "Linking"] [@bs.module "react-native"]
 external addEventListener: (string, {. "url": string} => unit) => unit = "";
