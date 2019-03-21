@@ -30,7 +30,7 @@ external make:
     ~delayPressOut: int=?,
     ~disabled: bool=?,
     ~hitSlop: Types.insets=?,
-    ~onLayout: RNEvent.NativeLayoutEvent.t => unit=?,
+    ~onLayout: Event.NativeLayoutEvent.t => unit=?,
     ~onPress: unit => unit=?,
     ~onPressIn: unit => unit=?,
     ~onPressOut: unit => unit=?,

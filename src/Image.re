@@ -40,18 +40,16 @@ module DefaultSource = {
   external fromRequired: Packager.required => t = "%identity";
 };
 
-module Event = {
-  type error;
-  type progress = {
-    loaded: float,
-    total: float,
-  };
+type progress = {
+  .
+  "loaded": float,
+  "total": float,
 };
 
 [@react.component] [@bs.module "react-native"]
 external make:
   (
-    ~onLayout: RNEvent.NativeLayoutEvent.t => unit=?,
+    ~onLayout: Event.NativeLayoutEvent.t => unit=?,
     ~onLoad: unit => unit=?,
     ~onLoadEnd: unit => unit=?,
     ~onLoadStart: unit => unit=?,
@@ -73,7 +71,7 @@ external make:
     ~capInsets: Types.insets=?,
     ~defaultSource: DefaultSource.t=?,
     ~onPartialLoad: unit => unit=?,
-    ~onProgress: Event.progress => unit=?
+    ~onProgress: progress => unit=?
   ) =>
   React.element =
   "Image";

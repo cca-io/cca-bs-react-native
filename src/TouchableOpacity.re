@@ -31,7 +31,7 @@ external make:
     ~disabled: bool=?,
     ~hitSlop: Types.insets=?,
     ~style: Style.t=?,
-    ~onLayout: RNEvent.NativeLayoutEvent.t => unit=?,
+    ~onLayout: Event.NativeLayoutEvent.t => unit=?,
     ~onPress: unit => unit=?,
     ~onLongPress: unit => unit=?,
     ~onPressIn: unit => unit=?,
