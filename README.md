@@ -1,5 +1,9 @@
 # cca-bs-react-native
 
+**This repo is obsolete.** Work continues in https://github.com/reasonml-community/bs-react-native/tree/master/bs-react-native-next.
+
+---
+
 **!!! WIP WIP WIP !!!**
 
 React Native bindings for [ReasonReact](https://github.com/reasonml/reason-react)'s [hooks branch](https://github.com/reasonml/reason-react/tree/hooks).
