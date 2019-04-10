@@ -12,11 +12,11 @@
     "react-native"
   ],
   "devDependencies": {
-    "bs-platform": "5.0.1-beta.1",
+    "bs-platform": "5.0.1",
     "reason-react": "0.7.0-alpha.0"
   },
   "peerDependencies": {
-    "bs-platform": "5.0.1-beta.1",
+    "bs-platform": "5.0.1",
     "reason-react": "0.7.0-alpha.0"
   },
   "scripts": {
