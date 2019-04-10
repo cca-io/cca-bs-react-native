@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-bs-platform@^4.0.18:
-  version "4.0.18"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-4.0.18.tgz#d17b8693ba1f714d9b27e0ddb365f2069ba4b8a0"
-  integrity sha512-BwzW0iYHvREqUZIgQxJmdJrxexppLvJxYQ4LLexbhCp7uZU5DIZ5ub4ZHpkCkc8fn8bsXWc+Rrejb3csi+BoAQ==
+bs-platform@5.0.1-beta.1:
+  version "5.0.1-beta.1"
+  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.1-beta.1.tgz#e6267122ce04420224b1e1e658701d1652a7f73a"
+  integrity sha512-zbi6biUmkjUMOyCjYCtpQKQrB/x9UWJGMN9WS9n/3PIRmC8GjgaJT0mWGrXgrZWhLPXaOp72r9laAfhLXOQnIQ==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
@@ -58,9 +58,10 @@ react@>=16.8.1:
     prop-types "^15.6.2"
     scheduler "^0.13.4"
 
-"reason-react@https://github.com/reasonml/reason-react.git#hooks":
-  version "0.6.0"
-  resolved "https://github.com/reasonml/reason-react.git#688bf4e1194d34be96de32fc897189bc59223d2a"
+reason-react@0.7.0-alpha.0:
+  version "0.7.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.7.0-alpha.0.tgz#35435ea3bcda31eab1d55f07003d170d148e7e30"
+  integrity sha512-us/TlvNmFc1Vpll+xSoFUzCEb3XlEs4PGSBQyvmBGMrfnpPsDLIy81PvyEBt5/ZYf7g6AwEBLAB6Od7GcSJNGw==
   dependencies:
     react ">=16.8.1"
     react-dom ">=16.8.1"
